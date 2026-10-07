@@ -1,0 +1,52 @@
+model: YOLO11n detection
+pretrained_weights: yolo11n.pt
+dataset_path: /Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection
+  Dataset/CUSTOM_DATASET
+data_yaml: /Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection
+  Dataset/CUSTOM_DATASET/data.yaml
+num_classes: 6
+class_names:
+- BIODEGRADABLE
+- CARDBOARD
+- GLASS
+- METAL
+- PAPER
+- PLASTIC
+image_size: 320
+batch_size: 32
+max_epochs: 10
+epochs_executed: 3
+optimizer_requested: auto
+optimizer_actual: AdamW
+learning_rate_requested: null
+learning_rate_actual: 0.001
+weight_decay: 0.0005
+patience: 5
+seed: 42
+device: cpu
+split_counts:
+  train:
+    images: 3565
+    objects: 23512
+  validation:
+    images: 1008
+    objects: 7284
+  test:
+    images: 505
+    objects: 3286
+python_version: 3.13.5
+pytorch_version: 2.12.0
+torchvision_version: 0.27.0
+ultralytics_version: 8.4.60
+codecarbon_version: 3.3.1
+data_caveats:
+  image_without_label: 29
+  label_without_image: 30
+  empty_label: 3
+  identical_image_duplicate: 29
+annotation_note: Mixed true YOLO bbox and polygon labels; Ultralytics derives detection
+  boxes from polygons.
+model_parameters: 2624080
+user_requested_stop_after_epoch: 3
+best_epoch: 3
+stop_reason: user_requested_after_3_epochs

@@ -1,0 +1,82 @@
+nice: setpriority: Operation not permitted
+{
+  "total_images": 5078,
+  "total_objects": 34082,
+  "splits": {
+    "train": {
+      "images": 3565,
+      "annotation_files": 3566,
+      "objects": 23512,
+      "share_pct": 70.20480504135486,
+      "mean_objects_per_image": 6.595231416549789,
+      "min_objects_per_image": 0,
+      "max_objects_per_image": 293,
+      "images_without_objects": 32,
+      "objects_per_class": {
+        "BIODEGRADABLE": 13024,
+        "CARDBOARD": 1994,
+        "GLASS": 1538,
+        "METAL": 2595,
+        "PAPER": 1617,
+        "PLASTIC": 2744
+      }
+    },
+    "validation": {
+      "images": 1008,
+      "annotation_files": 1008,
+      "objects": 7284,
+      "share_pct": 19.850334777471446,
+      "mean_objects_per_image": 7.226190476190476,
+      "min_objects_per_image": 1,
+      "max_objects_per_image": 311,
+      "images_without_objects": 0,
+      "objects_per_class": {
+        "BIODEGRADABLE": 4450,
+        "CARDBOARD": 451,
+        "GLASS": 432,
+        "METAL": 789,
+        "PAPER": 347,
+        "PLASTIC": 815
+      }
+    },
+    "test": {
+      "images": 505,
+      "annotation_files": 505,
+      "objects": 3286,
+      "share_pct": 9.94486018117369,
+      "mean_objects_per_image": 6.5069306930693065,
+      "min_objects_per_image": 1,
+      "max_objects_per_image": 271,
+      "images_without_objects": 0,
+      "objects_per_class": {
+        "BIODEGRADABLE": 1545,
+        "CARDBOARD": 273,
+        "GLASS": 437,
+        "METAL": 436,
+        "PAPER": 204,
+        "PLASTIC": 391
+      }
+    }
+  },
+  "objects_per_class": {
+    "BIODEGRADABLE": 19019,
+    "CARDBOARD": 2718,
+    "GLASS": 2407,
+    "METAL": 3820,
+    "PAPER": 2168,
+    "PLASTIC": 3950
+  },
+  "annotation_types": {
+    "polygon": 1158,
+    "bbox": 32924
+  },
+  "issue_counts": {
+    "image_without_label": 29,
+    "label_without_image": 30,
+    "empty_label": 3,
+    "identical_image_duplicate": 29
+  },
+  "imbalance_ratio": 8.77260147601476
+}
+cross_split_duplicate_groups: 0
+cross_split_source_ids_by_filename: 0

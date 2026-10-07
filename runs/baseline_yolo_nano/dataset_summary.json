@@ -1,0 +1,715 @@
+{
+  "dataset_path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET",
+  "classes": [
+    "BIODEGRADABLE",
+    "CARDBOARD",
+    "GLASS",
+    "METAL",
+    "PAPER",
+    "PLASTIC"
+  ],
+  "n_classes": 6,
+  "total_images": 5078,
+  "total_objects": 34082,
+  "splits": {
+    "train": {
+      "images": 3565,
+      "annotation_files": 3566,
+      "objects": 23512,
+      "share_pct": 70.20480504135486,
+      "mean_objects_per_image": 6.595231416549789,
+      "min_objects_per_image": 0,
+      "max_objects_per_image": 293,
+      "images_without_objects": 32,
+      "objects_per_class": {
+        "BIODEGRADABLE": 13024,
+        "CARDBOARD": 1994,
+        "GLASS": 1538,
+        "METAL": 2595,
+        "PAPER": 1617,
+        "PLASTIC": 2744
+      }
+    },
+    "validation": {
+      "images": 1008,
+      "annotation_files": 1008,
+      "objects": 7284,
+      "share_pct": 19.850334777471446,
+      "mean_objects_per_image": 7.226190476190476,
+      "min_objects_per_image": 1,
+      "max_objects_per_image": 311,
+      "images_without_objects": 0,
+      "objects_per_class": {
+        "BIODEGRADABLE": 4450,
+        "CARDBOARD": 451,
+        "GLASS": 432,
+        "METAL": 789,
+        "PAPER": 347,
+        "PLASTIC": 815
+      }
+    },
+    "test": {
+      "images": 505,
+      "annotation_files": 505,
+      "objects": 3286,
+      "share_pct": 9.94486018117369,
+      "mean_objects_per_image": 6.5069306930693065,
+      "min_objects_per_image": 1,
+      "max_objects_per_image": 271,
+      "images_without_objects": 0,
+      "objects_per_class": {
+        "BIODEGRADABLE": 1545,
+        "CARDBOARD": 273,
+        "GLASS": 437,
+        "METAL": 436,
+        "PAPER": 204,
+        "PLASTIC": 391
+      }
+    }
+  },
+  "objects_per_class": {
+    "BIODEGRADABLE": 19019,
+    "CARDBOARD": 2718,
+    "GLASS": 2407,
+    "METAL": 3820,
+    "PAPER": 2168,
+    "PLASTIC": 3950
+  },
+  "class_share_pct": {
+    "BIODEGRADABLE": 55.803650020538704,
+    "CARDBOARD": 7.9748841030455955,
+    "GLASS": 7.062378968370401,
+    "METAL": 11.208262425913972,
+    "PAPER": 6.361129041722903,
+    "PLASTIC": 11.589695440408427
+  },
+  "images_per_class": {
+    "BIODEGRADABLE": 898,
+    "CARDBOARD": 871,
+    "GLASS": 861,
+    "METAL": 1167,
+    "PAPER": 844,
+    "PLASTIC": 933
+  },
+  "imbalance_ratio": 8.77260147601476,
+  "unique_resolutions": 1,
+  "image_statistics": {
+    "width": {
+      "count": 5078.0,
+      "mean": 640.0,
+      "std": 0.0,
+      "min": 640.0,
+      "5%": 640.0,
+      "25%": 640.0,
+      "50%": 640.0,
+      "75%": 640.0,
+      "95%": 640.0,
+      "max": 640.0
+    },
+    "height": {
+      "count": 5078.0,
+      "mean": 640.0,
+      "std": 0.0,
+      "min": 640.0,
+      "5%": 640.0,
+      "25%": 640.0,
+      "50%": 640.0,
+      "75%": 640.0,
+      "95%": 640.0,
+      "max": 640.0
+    },
+    "aspect_ratio": {
+      "count": 5078.0,
+      "mean": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "5%": 1.0,
+      "25%": 1.0,
+      "50%": 1.0,
+      "75%": 1.0,
+      "95%": 1.0,
+      "max": 1.0
+    },
+    "file_size_kb": {
+      "count": 5078.0,
+      "mean": 34.197825638784956,
+      "std": 16.426749106471437,
+      "min": 9.2392578125,
+      "5%": 15.602392578125,
+      "25%": 22.42626953125,
+      "50%": 29.63720703125,
+      "75%": 41.636474609375,
+      "95%": 69.171875,
+      "max": 115.3896484375
+    },
+    "brightness": {
+      "count": 5078.0,
+      "mean": 176.36902746596456,
+      "std": 42.465199034028416,
+      "min": 24.4385205078125,
+      "5%": 100.92926196289062,
+      "25%": 148.52616455078126,
+      "50%": 177.83492553710937,
+      "75%": 211.30697204589845,
+      "95%": 237.5407735595703,
+      "max": 252.2268603515625
+    },
+    "contrast": {
+      "count": 5078.0,
+      "mean": 51.017177142592146,
+      "std": 17.30274711664365,
+      "min": 2.696699464328844,
+      "5%": 22.987013933234376,
+      "25%": 38.44908728455155,
+      "50%": 51.16845938749843,
+      "75%": 62.807832586519,
+      "95%": 79.69618059264603,
+      "max": 111.9131275293517
+    },
+    "sharpness": {
+      "count": 5078.0,
+      "mean": 191.06569435224364,
+      "std": 167.20278151657433,
+      "min": 1.0824804686546323,
+      "5%": 21.72594429361343,
+      "25%": 80.02160282068851,
+      "50%": 150.7289564286112,
+      "75%": 253.31077492772187,
+      "95%": 481.21311544534353,
+      "max": 1699.5945121444697
+    }
+  },
+  "box_statistics": {
+    "bw": {
+      "count": 34082.0,
+      "mean": 0.23473760872738908,
+      "std": 0.2508482659255522,
+      "min": 0.00625,
+      "5%": 0.02890625,
+      "25%": 0.0625,
+      "50%": 0.12734375,
+      "75%": 0.3078125,
+      "95%": 0.853125,
+      "max": 1.0
+    },
+    "bh": {
+      "count": 34082.0,
+      "mean": 0.24649670285767597,
+      "std": 0.25497822984911334,
+      "min": 0.0046875,
+      "5%": 0.03359375,
+      "25%": 0.0671875,
+      "50%": 0.13671875,
+      "75%": 0.3265625,
+      "95%": 0.8640234374999977,
+      "max": 1.0
+    },
+    "area": {
+      "count": 34082.0,
+      "mean": 0.10404382506664106,
+      "std": 0.19904133839204333,
+      "min": 8.7890625e-05,
+      "5%": 0.0011962890625,
+      "25%": 0.0043579101562499995,
+      "50%": 0.017855224609374998,
+      "75%": 0.09585242659912108,
+      "95%": 0.5752465515136711,
+      "max": 1.0
+    },
+    "box_aspect_ratio": {
+      "count": 34082.0,
+      "mean": 1.2035008365727908,
+      "std": 1.0949344588268939,
+      "min": 0.036513545347467605,
+      "5%": 0.28795950271030285,
+      "25%": 0.5980751131072289,
+      "50%": 0.9324060731733033,
+      "75%": 1.4418604651162792,
+      "95%": 3.0032203389830405,
+      "max": 28.555555555555554
+    },
+    "xc": {
+      "count": 34082.0,
+      "mean": 0.49865721472079283,
+      "std": 0.24511385261426732,
+      "min": 0.003125,
+      "5%": 0.08984375,
+      "25%": 0.3125,
+      "50%": 0.4984375,
+      "75%": 0.68125,
+      "95%": 0.9125,
+      "max": 0.99375
+    },
+    "yc": {
+      "count": 34082.0,
+      "mean": 0.5091834568576568,
+      "std": 0.24151027646302792,
+      "min": 0.0046875,
+      "5%": 0.09609375,
+      "25%": 0.3328125,
+      "50%": 0.50234375,
+      "75%": 0.6921875,
+      "95%": 0.90859375,
+      "max": 0.9953125
+    }
+  },
+  "annotation_types": {
+    "polygon": 1158,
+    "bbox": 32924
+  },
+  "small_objects_area_lt_1pct": 13678,
+  "large_objects_area_gt_50pct": 2101,
+  "central_boxes_center_in_middle_half": 14404,
+  "duplicate_groups": [
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard516_jpg.rf.3710eaa519f09953e6669a0fbd485861(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard516_jpg.rf.3710eaa519f09953e6669a0fbd485861.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard517_jpg.rf.e84bad18cdbc12d59dba7e125bfaa3a3(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard517_jpg.rf.e84bad18cdbc12d59dba7e125bfaa3a3.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard519_jpg.rf.a6a3e75d3991704e6b2f2a2272648d32(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard519_jpg.rf.a6a3e75d3991704e6b2f2a2272648d32.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard520_jpg.rf.dfaa3b5714e6b2ddb848f3314a2a0fb8(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard520_jpg.rf.dfaa3b5714e6b2ddb848f3314a2a0fb8.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass732_jpg.rf.8a50772898d7bc9615c5aadaf3b3d50a(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass732_jpg.rf.8a50772898d7bc9615c5aadaf3b3d50a.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass733_jpg.rf.0fa186180b7ae50729f7d4e5c40fbcfd(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass733_jpg.rf.0fa186180b7ae50729f7d4e5c40fbcfd.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass734_jpg.rf.238a3a35a03abc7f88e35cb30ee7c207(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass734_jpg.rf.238a3a35a03abc7f88e35cb30ee7c207.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass736_jpg.rf.7d118caa0f700732ec135e26d52e4b31(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass736_jpg.rf.7d118caa0f700732ec135e26d52e4b31.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass737_jpg.rf.6072d8fbabf846eb715a86583b1adfb6(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass737_jpg.rf.6072d8fbabf846eb715a86583b1adfb6.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal807_jpg.rf.adb64a06a1f1e9a853ee37e57a0659e4(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal807_jpg.rf.adb64a06a1f1e9a853ee37e57a0659e4.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal808_jpg.rf.7866ce9bddbfd8a60861c0a6f31499f1(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal808_jpg.rf.7866ce9bddbfd8a60861c0a6f31499f1.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal809_jpg.rf.528e30fb152ca82d4b515bdee6730e33(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal809_jpg.rf.528e30fb152ca82d4b515bdee6730e33.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal80_jpg.rf.77c3bcbc9743c739e07452e0879b2399(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal80_jpg.rf.77c3bcbc9743c739e07452e0879b2399.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal811_jpg.rf.edd798a6195b5ec498a87df4919714b8(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal811_jpg.rf.edd798a6195b5ec498a87df4919714b8.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal813_jpg.rf.bf357d4087f30c8ab7f9d01556174ca4(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal813_jpg.rf.bf357d4087f30c8ab7f9d01556174ca4.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal814_jpeg_jpg.rf.d1ff3f808fd5547651329294eb2efce6(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal814_jpeg_jpg.rf.d1ff3f808fd5547651329294eb2efce6.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal815_jpeg_jpg.rf.c02cf5ddcfee218b2fa257f24f0a29ad(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal815_jpeg_jpg.rf.c02cf5ddcfee218b2fa257f24f0a29ad.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal816_jpg.rf.c73db6cfd94b49409b37d8e155b67efe(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal816_jpg.rf.c73db6cfd94b49409b37d8e155b67efe.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal819_jpg.rf.9a8d0f429ef90df7514d9d637fd7d5fd(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal819_jpg.rf.9a8d0f429ef90df7514d9d637fd7d5fd.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic164_jpg.rf.43e8060f2cd7a7d98d27bcdc6ff2647b(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic164_jpg.rf.43e8060f2cd7a7d98d27bcdc6ff2647b.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic165_jpg.rf.f41d8fdd342a559f408fe14a1aacba42(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic165_jpg.rf.f41d8fdd342a559f408fe14a1aacba42.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic166_jpg.rf.f4f25d59a706b80f69be5119f988b5d3(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic166_jpg.rf.f4f25d59a706b80f69be5119f988b5d3.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic168_jpg.rf.a26db6172960ef79c6d84d66e03c98f5(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic168_jpg.rf.a26db6172960ef79c6d84d66e03c98f5.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic169_jpg.rf.af64ea6c00e3a01ae526a24920745950(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic169_jpg.rf.af64ea6c00e3a01ae526a24920745950.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic16_jpg.rf.4b661d7149f742457a866d4b94fcf933(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic16_jpg.rf.4b661d7149f742457a866d4b94fcf933.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic170_jpg.rf.8e5862fe5dc7f9d96a70d097b82d05f4(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic170_jpg.rf.8e5862fe5dc7f9d96a70d097b82d05f4.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic172_jpg.rf.c1251d5b2bb9edfddfe86c854d41bd77(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic172_jpg.rf.c1251d5b2bb9edfddfe86c854d41bd77.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic173_jpg.rf.d23fc3bf785d5be3b1f3be6493d246f7(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic173_jpg.rf.d23fc3bf785d5be3b1f3be6493d246f7.jpg"
+      ]
+    ],
+    [
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic174_jpg.rf.e5185587c60e25f1ecca699abfc92c3d(1).jpg"
+      ],
+      [
+        "train",
+        "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic174_jpg.rf.e5185587c60e25f1ecca699abfc92c3d.jpg"
+      ]
+    ]
+  ],
+  "cross_split_duplicate_groups": [],
+  "cross_split_source_ids_by_filename": [],
+  "issue_counts": {
+    "image_without_label": 29,
+    "label_without_image": 30,
+    "empty_label": 3,
+    "identical_image_duplicate": 29
+  },
+  "issue_examples": [
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard516_jpg.rf.3710eaa519f09953e6669a0fbd485861(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard517_jpg.rf.e84bad18cdbc12d59dba7e125bfaa3a3(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard519_jpg.rf.a6a3e75d3991704e6b2f2a2272648d32(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/cardboard520_jpg.rf.dfaa3b5714e6b2ddb848f3314a2a0fb8(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass732_jpg.rf.8a50772898d7bc9615c5aadaf3b3d50a(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass733_jpg.rf.0fa186180b7ae50729f7d4e5c40fbcfd(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass734_jpg.rf.238a3a35a03abc7f88e35cb30ee7c207(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass736_jpg.rf.7d118caa0f700732ec135e26d52e4b31(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/glass737_jpg.rf.6072d8fbabf846eb715a86583b1adfb6(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal807_jpg.rf.adb64a06a1f1e9a853ee37e57a0659e4(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal808_jpg.rf.7866ce9bddbfd8a60861c0a6f31499f1(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal809_jpg.rf.528e30fb152ca82d4b515bdee6730e33(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal80_jpg.rf.77c3bcbc9743c739e07452e0879b2399(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal811_jpg.rf.edd798a6195b5ec498a87df4919714b8(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal813_jpg.rf.bf357d4087f30c8ab7f9d01556174ca4(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal814_jpeg_jpg.rf.d1ff3f808fd5547651329294eb2efce6(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal815_jpeg_jpg.rf.c02cf5ddcfee218b2fa257f24f0a29ad(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal816_jpg.rf.c73db6cfd94b49409b37d8e155b67efe(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/metal819_jpg.rf.9a8d0f429ef90df7514d9d637fd7d5fd(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic164_jpg.rf.43e8060f2cd7a7d98d27bcdc6ff2647b(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic165_jpg.rf.f41d8fdd342a559f408fe14a1aacba42(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic166_jpg.rf.f4f25d59a706b80f69be5119f988b5d3(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic168_jpg.rf.a26db6172960ef79c6d84d66e03c98f5(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic169_jpg.rf.af64ea6c00e3a01ae526a24920745950(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic16_jpg.rf.4b661d7149f742457a866d4b94fcf933(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic170_jpg.rf.8e5862fe5dc7f9d96a70d097b82d05f4(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic172_jpg.rf.c1251d5b2bb9edfddfe86c854d41bd77(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic173_jpg.rf.d23fc3bf785d5be3b1f3be6493d246f7(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "image_without_label",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/images/plastic174_jpg.rf.e5185587c60e25f1ecca699abfc92c3d(1).jpg",
+      "detail": ""
+    },
+    {
+      "kind": "label_without_image",
+      "path": "/Users/oskar/studia/sem7/projekt_Gielczyk/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/glass132_jpg.rf.011ea2d64f6c10c5d1a086ab9240a54f(1).txt",
+      "detail": ""
+    }
+  ]
+}

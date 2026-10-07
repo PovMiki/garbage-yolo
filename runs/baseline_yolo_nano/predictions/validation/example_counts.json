@@ -1,0 +1,7 @@
+{
+  "correct": 6,
+  "false_positive": 6,
+  "false_negative": 6,
+  "misclassification": 6,
+  "low_confidence": 6
+}

@@ -1,0 +1,12 @@
+{
+  "training_time_seconds": 1660.980358375,
+  "training_time_minutes": 27.683005972916664,
+  "energy_consumed_kwh": 0.010574308713564299,
+  "co2_emissions_kg": 0.006999409869534762,
+  "cpu_energy_kwh": 0.007806043857655966,
+  "gpu_energy_kwh": 0.0,
+  "ram_energy_kwh": 0.002768264855908335,
+  "codecarbon_run_id": "f4fe7bbb-1479-4dc0-938e-8759e4bf3409",
+  "method": "CodeCarbon machine tracker from training start to interruption after the third saved epoch; includes epoch validation and a short part of the next batch before interruption, excludes final evaluation. CPU power estimated from load/TDP on macOS.",
+  "limitations": "No direct CPU energy sensor was available; component values are CodeCarbon estimates, not wattmeter readings."
+}
