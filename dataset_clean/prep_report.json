@@ -1,0 +1,191 @@
+{
+  "summary": {
+    "test": {
+      "input_images": 505,
+      "orphan_labels": 0,
+      "kept_images": 505,
+      "boxes": 3286,
+      "polygons_converted": 0,
+      "duplicate_boxes": 0
+    },
+    "valid": {
+      "input_images": 1008,
+      "orphan_labels": 0,
+      "kept_images": 1008,
+      "boxes": 7284,
+      "polygons_converted": 0,
+      "duplicate_boxes": 0
+    },
+    "train": {
+      "input_images": 3565,
+      "orphan_labels": 30,
+      "kept_images": 3533,
+      "boxes": 23512,
+      "polygons_converted": 1158,
+      "duplicate_boxes": 0,
+      "invalid_pairs": 32
+    }
+  },
+  "skipped": [
+    {
+      "split": "train",
+      "file": "biodegradable579_jpg.rf.004c234ec7d81c47c60a0c3005c7bf18.jpg",
+      "reason": "Pusta etykieta"
+    },
+    {
+      "split": "train",
+      "file": "cardboard102_jpg.rf.607524ad890e48894dcac30ad3f46c30.jpg",
+      "reason": "Pusta etykieta"
+    },
+    {
+      "split": "train",
+      "file": "cardboard516_jpg.rf.3710eaa519f09953e6669a0fbd485861(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/cardboard516_jpg.rf.3710eaa519f09953e6669a0fbd485861(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "cardboard517_jpg.rf.e84bad18cdbc12d59dba7e125bfaa3a3(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/cardboard517_jpg.rf.e84bad18cdbc12d59dba7e125bfaa3a3(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "cardboard519_jpg.rf.a6a3e75d3991704e6b2f2a2272648d32(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/cardboard519_jpg.rf.a6a3e75d3991704e6b2f2a2272648d32(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "cardboard520_jpg.rf.dfaa3b5714e6b2ddb848f3314a2a0fb8(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/cardboard520_jpg.rf.dfaa3b5714e6b2ddb848f3314a2a0fb8(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "glass732_jpg.rf.8a50772898d7bc9615c5aadaf3b3d50a(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/glass732_jpg.rf.8a50772898d7bc9615c5aadaf3b3d50a(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "glass733_jpg.rf.0fa186180b7ae50729f7d4e5c40fbcfd(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/glass733_jpg.rf.0fa186180b7ae50729f7d4e5c40fbcfd(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "glass734_jpg.rf.238a3a35a03abc7f88e35cb30ee7c207(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/glass734_jpg.rf.238a3a35a03abc7f88e35cb30ee7c207(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "glass736_jpg.rf.7d118caa0f700732ec135e26d52e4b31(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/glass736_jpg.rf.7d118caa0f700732ec135e26d52e4b31(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "glass737_jpg.rf.6072d8fbabf846eb715a86583b1adfb6(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/glass737_jpg.rf.6072d8fbabf846eb715a86583b1adfb6(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal807_jpg.rf.adb64a06a1f1e9a853ee37e57a0659e4(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal807_jpg.rf.adb64a06a1f1e9a853ee37e57a0659e4(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal808_jpg.rf.7866ce9bddbfd8a60861c0a6f31499f1(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal808_jpg.rf.7866ce9bddbfd8a60861c0a6f31499f1(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal809_jpg.rf.528e30fb152ca82d4b515bdee6730e33(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal809_jpg.rf.528e30fb152ca82d4b515bdee6730e33(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal80_jpg.rf.77c3bcbc9743c739e07452e0879b2399(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal80_jpg.rf.77c3bcbc9743c739e07452e0879b2399(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal811_jpg.rf.edd798a6195b5ec498a87df4919714b8(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal811_jpg.rf.edd798a6195b5ec498a87df4919714b8(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal813_jpg.rf.bf357d4087f30c8ab7f9d01556174ca4(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal813_jpg.rf.bf357d4087f30c8ab7f9d01556174ca4(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal814_jpeg_jpg.rf.d1ff3f808fd5547651329294eb2efce6(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal814_jpeg_jpg.rf.d1ff3f808fd5547651329294eb2efce6(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal815_jpeg_jpg.rf.c02cf5ddcfee218b2fa257f24f0a29ad(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal815_jpeg_jpg.rf.c02cf5ddcfee218b2fa257f24f0a29ad(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal816_jpg.rf.c73db6cfd94b49409b37d8e155b67efe(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal816_jpg.rf.c73db6cfd94b49409b37d8e155b67efe(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "metal819_jpg.rf.9a8d0f429ef90df7514d9d637fd7d5fd(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/metal819_jpg.rf.9a8d0f429ef90df7514d9d637fd7d5fd(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "paper721_jpg.rf.e4f5a227079de33bf344a14a8cf300e0.jpg",
+      "reason": "Pusta etykieta"
+    },
+    {
+      "split": "train",
+      "file": "plastic164_jpg.rf.43e8060f2cd7a7d98d27bcdc6ff2647b(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic164_jpg.rf.43e8060f2cd7a7d98d27bcdc6ff2647b(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic165_jpg.rf.f41d8fdd342a559f408fe14a1aacba42(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic165_jpg.rf.f41d8fdd342a559f408fe14a1aacba42(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic166_jpg.rf.f4f25d59a706b80f69be5119f988b5d3(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic166_jpg.rf.f4f25d59a706b80f69be5119f988b5d3(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic168_jpg.rf.a26db6172960ef79c6d84d66e03c98f5(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic168_jpg.rf.a26db6172960ef79c6d84d66e03c98f5(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic169_jpg.rf.af64ea6c00e3a01ae526a24920745950(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic169_jpg.rf.af64ea6c00e3a01ae526a24920745950(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic16_jpg.rf.4b661d7149f742457a866d4b94fcf933(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic16_jpg.rf.4b661d7149f742457a866d4b94fcf933(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic170_jpg.rf.8e5862fe5dc7f9d96a70d097b82d05f4(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic170_jpg.rf.8e5862fe5dc7f9d96a70d097b82d05f4(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic172_jpg.rf.c1251d5b2bb9edfddfe86c854d41bd77(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic172_jpg.rf.c1251d5b2bb9edfddfe86c854d41bd77(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic173_jpg.rf.d23fc3bf785d5be3b1f3be6493d246f7(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic173_jpg.rf.d23fc3bf785d5be3b1f3be6493d246f7(1).txt'"
+    },
+    {
+      "split": "train",
+      "file": "plastic174_jpg.rf.e5185587c60e25f1ecca699abfc92c3d(1).jpg",
+      "reason": "[Errno 2] No such file or directory: '/Users/oskar/studia/sem7/garbage-yolo/Trash Detection Dataset/CUSTOM_DATASET/train/labels/plastic174_jpg.rf.e5185587c60e25f1ecca699abfc92c3d(1).txt'"
+    }
+  ]
+}
