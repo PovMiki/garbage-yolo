@@ -1,0 +1,16 @@
+{
+  "packages": {
+    "ultralytics": "8.4.175",
+    "torch": "2.11.0+cu130",
+    "codecarbon": "3.3.1"
+  },
+  "device": "Tesla T4",
+  "country": "POL",
+  "seed": 42,
+  "epochs": 50,
+  "batch": 8,
+  "imgsz": 640,
+  "optimizer": "AdamW",
+  "lr0": 0.001,
+  "patience": 10
+}
