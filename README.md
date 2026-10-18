@@ -1,6 +1,6 @@
 # 🗑️ Garbage YOLO — rozpoznawanie odpadów
 
-Celem projektu jest mobilny system AI rozpoznający i lokalizujący odpady na obrazie z kamery telefonu w czasie rzeczywistym. Obecny etap obejmuje analizę datasetu, przygotowanie danych oraz kod treningu modelu bazowego **YOLO11 Nano** z pomiarem wpływu środowiskowego. Eksport modelu i integracja z aplikacją mobilną będą kolejnymi etapami.
+Celem projektu jest mobilny system AI rozpoznający i lokalizujący odpady na obrazie z kamery telefonu w czasie rzeczywistym. Obecny etap obejmuje analizę datasetu, przygotowanie danych, trening i porównanie modeli **YOLO11 Nano** (baseline, augmentacja) z pomiarem wpływu środowiskowego. Strojenie hiperparametrów, XAI, eksport do ONNX i aplikacja mobilna są jeszcze przed nami.
 
 Notebook `EDA.ipynb` robi **eksploracyjną analizę danych (EDA)** zbioru zdjęć śmieci do detekcji obiektów (format YOLO). Nie trenuje żadnego modelu – sprawdza tylko, **co jest w danych i czy są z nimi problemy**, zanim ktokolwiek zacznie trening.
 
@@ -82,75 +82,68 @@ Poniższe statystyki pochodzą z pierwotnej analizy, przed konwersją wielokąt�
   - **1158 oznaczeń wielokątami**, które EDA zgłasza jako błędy, ponieważ oczekuje 5 wartości w każdym wierszu; `prep_dataset.ipynb` zamienia je na bounding boxy
 - Splity `valid` i `test` są czyste – 0 błędów.
 
-Przed treningiem uruchom `prep_dataset.ipynb`, aby uporządkować dane i ujednolicić format oznaczeń.
+## Status projektu
 
-## Przygotowanie danych i trening baseline
+| # | Krok | Stan |
+|---|------|------|
+| 1 | Dataset + EDA | ✅ `EDA.ipynb` |
+| 3 | Preprocessing, podział train/valid/test | ✅ `prep_dataset.ipynb` → `dataset_clean/` |
+| 2 | Baseline YOLO11n | ✅ jeden zamrożony config: `configs/baseline.yaml` |
+| 4 | Metryki + Green AI | 🟡 wspólny `scripts/evaluate.py`; do przeliczenia dla pozostałych modeli |
+| 5 | Augmentacja | 🟡 offline oversampling gotowy (`nowe/`), brak porównania z baseline'em na tym samym configu |
+| 6 | Strojenie hiperparametrów | ❌ kod w `stare/aug_hiper.ipynb`, nigdy nie uruchomiony do końca |
+| 7–10 | Wybór modelu, XAI, ONNX, aplikacja mobilna | ❌ |
 
-Wymagany jest Python 3.10+ oraz Jupyter. Uruchamiaj notebooki z katalogu głównego projektu `garbage-yolo`, aby ścieżki do danych były poprawne. Pierwsze komórki nowych notebooków instalują potrzebne biblioteki; instalacja oraz pierwsze pobranie wag modelu wymagają internetu.
+## Baseline (zamrożony)
 
-1. `EDA.ipynb` — analiza danych, wykonana na wcześniejszym etapie.
-2. `prep_dataset.ipynb` — przygotowanie oczyszczonego zbioru.
-3. `train_baseline.ipynb` — trening, pomiar Green AI i końcowa ocena na zbiorze testowym.
+`configs/baseline.yaml`: YOLO11n (`yolo11n.pt`), 50 epok, imgsz 640, batch 8, seed 42, AdamW lr0=0.001, cosine LR, patience 10, **domyślne augmentacje Ultralytics** (mosaic, hsv, fliplr, scale…).
+Wynik na teście (505 zdjęć), zreprodukowany lokalnie przez `scripts/evaluate.py`: **mAP50 0.476, mAP50-95 0.334**, precision 0.634, recall 0.421. Wagi: `stare/baseline_v0_best.pt`.
 
-### `prep_dataset.ipynb`
+Zasada: **jeden eksperyment = kopia configu ze zmianą jednej rzeczy**, ten sam seed (najlepiej kilka seedów), jedna ewaluacja. Porównujemy zawsze z tym baseline'em.
 
-Notebook tworzy osobny folder `dataset_clean/`, pozostawiając źródłowy dataset bez zmian. Zachowuje wszystkie 6 klas i istniejący podział danych. Sprawdza poprawność zdjęć i etykiet, konwertuje wielokąty na bounding boxy oraz pomija całe pary z brakującymi, pustymi lub niepoprawnymi oznaczeniami. Puste etykiety są odrzucane, ponieważ nie potwierdzono, że przedstawiają wyłącznie tło.
+## Uruchamianie (lokalnie lub w Colabie)
 
-Do nowego folderu trafiają tylko potrzebne obrazy, ich etykiety, poprawiony `data.yaml` i raport `prep_report.json`. Osierocone etykiety i stare pliki cache są pomijane. Identyczne pliki obrazów są usuwane także między splitami, z pierwszeństwem dla `test`, następnie `valid` i `train`; nie jest to wykrywanie podobnych zdjęć. Powtórzone boxy w jednej etykiecie również są usuwane.
+```bash
+pip install -r requirements.txt
+python scripts/train.py configs/baseline.yaml --name baseline_s42                     # trening + energia + ewaluacja
+python scripts/train.py configs/baseline.yaml --name no_flip --set fliplr=0.0          # eksperyment: jedna zmiana
+python scripts/evaluate.py runs/baseline_s42/weights/best.pt --name baseline_s42 \
+    --seed 42 --config configs/baseline.yaml --emissions runs/baseline_s42/emissions.csv
+```
 
-Kontrola reguł na obecnym zbiorze, bez modyfikowania źródła, wskazała:
+`evaluate.py` dopisuje wiersz do `results/results.csv` (mAP50, mAP50-95, P, R, F1, latencja CPU, FPS, rozmiar, GFLOPs, parametry, kWh, commit, host) i do `results/results_per_class.csv`.
 
-| Split | Zdjęcia po oczyszczeniu |
-|-------|-----------------------:|
-| train | 3533 |
-| valid | 1008 |
-| test | 505 |
+### Jak czytać metryki Green AI
 
-W `train` pomijane są 32 zdjęcia (29 bez etykiety i 3 z pustą etykietą), a 1158 wielokątów jest konwertowanych do boxów. Raport wygenerowany po uruchomieniu notebooka zawiera aktualne liczniki i przyczyny odrzucenia plików.
+- **Porównuj energię w kWh, nie CO₂.** CodeCarbon liczy CO₂ ze współczynnika sieci wykrytego regionu serwera; ten sam trening w innym regionie Colaba daje inne CO₂ (np. 0.35 vs 0.14 kg/kWh).
+- **Latencję porównuj tylko w obrębie jednej maszyny i jednego uruchomienia.** Ten sam model dał na różnych sesjach Colaba 59–128 ms. To pomiar PyTorch na CPU (preprocessing + inferencja + NMS), nie ONNX na telefonie.
+- **F1** to średnia z F1 per klasa liczonego z P i R Ultralytics (`F1_macro`).
+- Jeden przebieg to jedna liczba; różnice rzędu 1 pp przy 505 zdjęciach testowych mogą być szumem.
 
-Notebook nie nadpisuje istniejącego `dataset_clean/`. Przy ponownym przygotowaniu ustaw nową ścieżkę `OUT`; wtedy dostosuj również `DATA` w notebooku treningowym. Po przeniesieniu gotowego zbioru na inną maszynę zaktualizuj pole `path` w jego `data.yaml`, ponieważ zawiera ścieżkę absolutną.
+## Dane: `prep_dataset.ipynb`
 
-### `train_baseline.ipynb`
+Tworzy `dataset_clean/` (źródło zostaje bez zmian): zachowuje 6 klas i split, konwertuje 1158 wielokątów na boxy, pomija całe pary z brakującymi/pustymi/niepoprawnymi etykietami (32 zdjęcia w `train`), usuwa identyczne pliki obrazów między splitami (pierwszeństwo: test, valid, train) i powtórzone boxy. Raport: `dataset_clean/prep_report.json`. Wynik: 3533 / 1008 / 505 zdjęć.
+`dataset_clean/data.yaml` ma ścieżkę absolutną z komputera autora. `scripts/*` i notebooki Colaba tworzą własną kopię z poprawnym `path`, więc nic nie trzeba edytować.
 
-Baseline wykorzystuje wstępnie wytrenowany model `yolo11n.pt`. Wywołanie `model.train()` realizuje pętlę epok i batchy, oblicza funkcję straty, aktualizuje wagi oraz prowadzi walidację i zapis checkpointów.
+## Notebooki historyczne (`stare/`, `nowe/`)
 
-| Parametr | Ustawienie |
-|----------|------------|
-| Model | YOLO11 Nano, detekcja 6 klas |
-| Liczba epok | maksymalnie 50 |
-| Batch / rozmiar obrazu | 8 / 640 × 640 |
-| Optymalizator / początkowy learning rate | AdamW / 0.001 |
-| Early stopping | `patience=10` |
-| Seed | 42 |
-| Urządzenie | automatycznie CUDA → MPS → CPU |
-
-Najlepszy model jest wybierany na zbiorze `valid`. Zbiór `test` służy końcowej ocenie: mAP50, mAP50–95, precision i recall. W razie braku pamięci zmniejsz `BATCH` w komórce konfiguracyjnej.
-
-### Green AI — energia i emisje
-
-`OfflineEmissionsTracker` z CodeCarbon śledzi całe wywołanie treningowe, w tym walidację wykonywaną przez trener. Końcowy test jest poza tym pomiarem. Tracker zapisuje raport także przy błędzie lub przerwaniu treningu dzięki blokowi `try/finally`.
-
-- `emissions` — szacowana emisja CO₂eq w kg.
-- `energy_consumed` — szacowane zużycie energii w kWh.
-- `duration` — czas pomiaru w sekundach.
-
-`COUNTRY = "POL"` należy dostosować do fizycznej lokalizacji komputera lub serwera. Pomiar dotyczy całej maszyny, więc inne procesy wpływają na wynik. Na Apple Silicon pomiar energii GPU może być niepełny lub wymagać dodatkowych uprawnień. Dane CodeCarbon są estymacją; brak raportu nie oznacza zerowej emisji. Raport jest zapisywany lokalnie, bez wysyłania do API CodeCarbon.
-
-### Pliki wynikowe
-
-Każde uruchomienie treningu tworzy własny folder `runs/baseline_<data>_<czas>_<id>/`:
-
-| Plik | Zawartość |
+| Plik | Co to jest |
 |------|-----------|
-| `weights/best.pt` | najlepsze wagi według walidacji |
-| `weights/last.pt` | ostatni checkpoint |
-| `results.csv` | straty i metryki kolejnych epok |
-| `emissions.csv` | emisje CO₂eq, energia i czas |
-| `environment.json` | wersje bibliotek, urządzenie, kraj i seed |
-| `test_metrics.json` | metryki końcowego testu |
-| `test/` | wyniki i wykresy końcowej walidacji na zbiorze testowym |
+| `stare/baseline_colab.ipynb` | trening baseline_v0 na Colabie (T4, ~61 min, 0.076 kWh) |
+| `stare/aug_hiper.ipynb` | augmentacje online + Keras Tuner; **nie uruchomiony do końca**, brak wyników |
+| `stare/wyniki/` | wyniki baseline_v0 (`results.csv`, `test_metrics.json`, `emissions.csv`) |
+| `nowe/Model_Baseline_KOD.ipynb` | baseline **bez żadnej augmentacji** (batch 16, optimizer auto, seed 0). **Nie jest naszym baseline'em** (test mAP50-95 0.248), tylko punktem odniesienia dla augmentacji offline |
+| `nowe/augmentacja_colab.ipynb` | oversampling offline klas mniejszościowych (+861 zdjęć), model `aug_balanced` (test mAP50-95 0.259) |
+| `nowe/podglad_augmentacji.ipynb` | podgląd augmentacji i rozkładu klas po oversamplingu |
+| `nowe/wyniki/` | wyniki `baseline` (bez aug) i `aug_balanced` |
 
-Przy przygotowaniu notebooków sprawdzono składnię i reguły czyszczenia danych. **Trening nie został uruchomiony** — repozytorium nie zawiera jeszcze wyników wytrenowanego baseline'u.
+⚠️ Wyniki z `nowe/` **nie są porównywalne** z baseline'em z `configs/baseline.yaml` (inne augmentacje, batch, optimizer, seed). Oversampling offline nie został jeszcze sprawdzony na tym samym configu co baseline.
+
+## Znane problemy do rozwiązania
+
+- GLASS to najsłabsza klasa (~0.20 mAP50-95 w baseline). W macierzy pomyłek `aug_balanced` ok. 36% szkła trafia w tło (niewykryte), a BIODEGRADABLE i METAL są często wykrywane na tle.
+- Dotychczasowe wyniki to pojedyncze przebiegi (jeden seed), bez przedziałów ufności.
+- Brak pomiaru latencji dla ONNX Runtime (właściwego środowiska docelowego).
 
 ## Struktura repo
 
@@ -158,19 +151,13 @@ Przy przygotowaniu notebooków sprawdzono składnię i reguły czyszczenia danyc
 .
 ├── EDA.ipynb
 ├── prep_dataset.ipynb
-├── train_baseline.ipynb
-├── README.md
-├── Trash Detection Dataset/
-│   └── CUSTOM_DATASET/
-│       ├── data.yaml
-│       ├── train/ (images, labels)
-│       ├── valid/ (images, labels)
-│       └── test/  (images, labels)
-├── dataset_clean/               # powstaje po przygotowaniu danych
-│   ├── data.yaml
-│   ├── prep_report.json
-│   ├── train/ (images, labels)
-│   ├── valid/ (images, labels)
-│   └── test/  (images, labels)
-└── runs/                        # powstaje po uruchomieniu treningu
+├── configs/baseline.yaml          # zamrożony baseline
+├── scripts/                       # train.py, evaluate.py, common.py
+├── results/                       # results.csv, results_per_class.csv
+├── requirements.txt
+├── stare/                         # baseline_v0 (domyślne aug.) + niedokończony tuning
+├── nowe/                          # baseline bez aug., augmentacja offline
+├── Trash Detection Dataset/       # dane źródłowe (Roboflow)
+├── dataset_clean/                 # dane oczyszczone (train/valid/test)
+└── runs/                          # wyniki lokalnych treningów (poza gitem)
 ```

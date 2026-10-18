@@ -1,0 +1,18 @@
+# Zamrożony baseline: YOLO11n z domyślnymi augmentacjami Ultralytics.
+# Identyczny z baseline_v0 (stare/), żeby istniejący wynik (test mAP50-95 = 0.334) pozostał ważny.
+# Każdy kolejny eksperyment = kopia tego pliku ze ZMIANĄ JEDNEJ RZECZY.
+model: yolo11n.pt
+epochs: 50
+imgsz: 640
+batch: 8
+seed: 42
+deterministic: true
+optimizer: AdamW
+lr0: 0.001
+cos_lr: true
+patience: 10
+workers: 2
+cache: false
+plots: true
+# Augmentacje: nie ustawiamy -> domyślne wartości Ultralytics
+# (mosaic=1.0, hsv_h/s/v=0.015/0.7/0.4, fliplr=0.5, scale=0.5, erasing=0.4 ...)

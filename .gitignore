@@ -1,0 +1,16 @@
+.venv/
+.idea/
+/runs/
+yolo*.pt
+*_last.pt
+last.pt
+*.cache
+dataset_clean/data_local.yaml
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+**/.DS_Store
+dataset_clean/data_colab.yaml
+*.zip
+wandb/
+results/.tmp/
